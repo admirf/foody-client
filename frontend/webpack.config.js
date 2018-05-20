@@ -3,7 +3,7 @@ var path = require('path')
 
 module.exports = {
   devtool: 'inline-source-map',
-  entry: path.resolve(__dirname, 'app'),
+  entry: path.resolve(__dirname, 'initialApp'),
   output: {
     path: __dirname + '/dist',
     publicPath: '/',
