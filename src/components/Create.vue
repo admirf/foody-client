@@ -38,8 +38,12 @@
           <b-form-checkbox value="that">Check that out</b-form-checkbox>
         </b-form-checkbox-group>
       </b-form-group>-->
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary" v-b-modal.modal-center>Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
+      <!-- Modal Component -->
+      <b-modal v-model="registered" id="modal-center" centered title="foody" ok-only>
+        <p class="my-4">You successfully registered account!</p>
+      </b-modal>
     </b-form>
   </div>
 </template>
@@ -57,12 +61,13 @@ export default {
         password: '',
         isAdmin: false
       },
-      show: true
+      show: true,
+      registered: false
     }
   },
   methods: {
     onSubmit (evt) {
-      var vm = this
+      let vm = this
       evt.preventDefault()
       axios.post('http://localhost:8080/accounts', {
         username: vm.form.username,
@@ -71,10 +76,11 @@ export default {
         isAdmin: false
       })
         .then(function (response) {
-          console.log(response)
+          // vm.registered = true
+          // vm.$router.push('/')
         })
         .catch(function (error) {
-          console.log(error)
+          alert(error)
         })
       // alert(JSON.stringify(vm.form))
     },

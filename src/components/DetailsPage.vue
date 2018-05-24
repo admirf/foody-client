@@ -10,10 +10,12 @@
 
 <script>
 import User from '@/components/User'
+import Item from '@/components/Item'
 
 export default {
   name: 'details-page',
   components: {
+    Item,
     User
   },
   data () {
