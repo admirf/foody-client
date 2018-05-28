@@ -10,16 +10,6 @@
                       placeholder="Enter username">
         </b-form-input>
       </b-form-group>
-      <b-form-group id="exampleInputGroup1"
-                    label-for="exampleInput1"
-                    description="We'll never share your email with anyone else.">
-        <b-form-input id="exampleInput1"
-                      type="email"
-                      v-model="form.email"
-                      required
-                      placeholder="Enter email">
-        </b-form-input>
-      </b-form-group>
       <b-form-group id="exampleInputGroup3"
                     label-for="exampleInput3">
         <b-form-input id="exampleInput3"
@@ -35,8 +25,7 @@
           <b-form-checkbox value="that">Check that out</b-form-checkbox>
         </b-form-checkbox-group>
       </b-form-group>-->
-      <b-button type="submit" variant="primary" v-b-modal.modal-center>Submit</b-button>
-      <b-button type="reset" variant="danger">Reset</b-button>
+      <b-button type="submit" variant="primary" v-b-modal.modal-center>Login</b-button>
       <!-- Modal Component -->
       <b-modal v-model="registered" id="modal-center" centered title="foody" ok-only>
         <p class="my-4">You successfully registered account!</p>
@@ -67,7 +56,7 @@ export default {
     onSubmit (evt) {
       let vm = this
       evt.preventDefault()
-      axios.post('http://localhost:8080/accounts', {
+      /* axios.post('http://localhost:8080/accounts', {
         username: vm.form.username,
         email: vm.form.email,
         password: vm.form.password,
@@ -83,7 +72,8 @@ export default {
         })
         .catch(function (error) {
           alert(error)
-        })
+        }) */
+      vm.$router.push('/dashboard')
       // alert(JSON.stringify(vm.form))
     },
     onReset (evt) {

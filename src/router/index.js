@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import Create from '@/components/Create'
 import DetailsPage from '@/components/DetailsPage'
 import Item from '@/components/Item'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -25,9 +26,14 @@ export default new Router({
       component: DetailsPage
     },
     {
-      path: '/items',
+      path: '/dashboard',
       name: 'Items',
       component: Item
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })
